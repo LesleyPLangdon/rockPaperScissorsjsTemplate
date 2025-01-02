@@ -1,30 +1,28 @@
-let userChoice = "";
-let computerChoice = "";
+
 const getUserChoice = (userInput) => {
-   userChoice = userInput;
-  //  console.log(userChoice);
-  document.getElementById("userChoice").innerHTML = ("Player Selected: " + userChoice)
-   getComputerChoice();
+    userInput = userInput.toLowerCase();
+    if (userInput == "rock" || userInput == "paper" || userInput == "scissors" || userInput == "ocvts") {
+      return userInput;
+    } else {
+      console.log("user input error");
+    }
   }
   
   const getComputerChoice = () => {
     let randomNumber = Math.floor(Math.random() * 3);
     switch (randomNumber) {
     case 0:
-      computerChoice = 'rock';
+      return 'rock';
       break;
     case 1:
-      computerChoice = 'paper';
+      return 'paper';
       break;
     case 2:
-      computerChoice = 'scissors';
+      return 'scissors';
       break
       }
-      // console.log(computerChoice);
-      document.getElementById("computerChoice").innerHTML = ("Computer Selected: " + computerChoice)
-      determineWinner();
   }
-  const determineWinner = () => {
+  const determineWinner = (userChoice, computerChoice) => {
     result = "";
     if (userChoice == computerChoice) {
       result = "It's a tie!";
@@ -36,19 +34,17 @@ const getUserChoice = (userInput) => {
       result = "Error determining winner";
     }
     
-    // console.log(result);
-    document.getElementById("winner").innerHTML = result
-   
+    return result;
   }
   
-  // const playGame = () => {
-    
-  //   console.log(userChoice);
-    
-  //   console.log(computerChoice);
-  //   console.log(result);
-  // }
+  const playGame = () => {
+    let userChoice = getUserChoice('ocvts');
+    console.log(userChoice);
+    let computerChoice = getComputerChoice();
+    console.log(computerChoice);
+    console.log(determineWinner(userChoice, computerChoice));
+  }
   
-  // playGame();
+  playGame();
   
   
