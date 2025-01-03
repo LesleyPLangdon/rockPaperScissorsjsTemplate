@@ -1,5 +1,6 @@
 let userChoice = "";
 let computerChoice = "";
+
 const getUserChoice = (userInput) => {
     userChoice = userInput;
     // console.log(userChoice);
